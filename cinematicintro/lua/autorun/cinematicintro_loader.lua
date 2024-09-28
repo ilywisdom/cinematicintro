@@ -42,3 +42,5 @@ local function IncludeDir( directory )
 end
 
 IncludeDir( rootDirectory )
+
+MsgC( Color(107,3,3), "Cinematic Intro >> Loaded!")
