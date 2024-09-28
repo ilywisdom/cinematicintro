@@ -4,6 +4,8 @@ CinematicIntro.Config = CinematicIntro.Config or {}
 
 // Config Stuff Here
 
+CinematicIntro.Config.ServerName = ""
+
 CinematicIntro.Config.Descriptions = {
     "PoliceRP Remastered",
     "Print Money with our money printers!",

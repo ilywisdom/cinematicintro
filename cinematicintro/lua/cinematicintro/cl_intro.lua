@@ -31,7 +31,7 @@ local function CinematicIntroStart()
 
     function CinematicIntroButton:DoClick()
         hook.Remove("CalcView", "CinematicIntroCalcView")
-        surface.PlaySound("fuckb3n/notify.wav")
+        surface.PlaySound("ilywisdom/notify.wav")
         CinematicIntroFrame:Remove()
     end
     -- Descriptions just go like "this a description" If you add another one the make sure to put a comma on the top one!
@@ -48,7 +48,7 @@ local function CinematicIntroStart()
     CinematicIntroFrame.Paint = function(me, w, h)
         surface.SetAlphaMultiplier(math.abs(math.sin(CurTime() * 3)))
         surface.SetAlphaMultiplier(1)
-        draw.SimpleText("Pandora Networks PoliceRP", "CinematicIntro.Title.Font", w / 2 + 2, h * .43, color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+        draw.SimpleText(CinematicIntro.Config.ServerName, "CinematicIntro.Title.Font", w / 2 + 2, h * .43, color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
 
         draw.SimpleText(string.sub(descriptions[description], 1, step), "CinematicIntro.Description.Font", w / 2, h * .56, color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
 
