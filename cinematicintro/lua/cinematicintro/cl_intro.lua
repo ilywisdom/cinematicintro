@@ -68,46 +68,25 @@ local function CinematicIntroStart()
         end
     end
 
-    -- Sections for CalcView glide
-    local sect1 = {
-        startPos = Vector(-7584, 1547, 516.952759),
-        startAng = Angle(3, 119, 0.000000),
-        endPos = Vector(-5101, 1699, 516.952759),
-        endAng = Angle(-1, 100, 0.000000)
-    }
-
-    local sect2 = {
-        startPos = Vector(-4107, 6071, 559.097412),
-        startAng = Angle(1, -159, 0.000000),
-        endPos = Vector(-6800, 7223, 557.347778),
-        endAng = Angle(3, -89, 0.000000)
-    }
-
- -- These are extra sections for the map preview uncomment these if you want more
-  --  local sect3 = {
-      --  startPos = Vector(8611, 12143, 167),
-     --   startAng = Angle(8, 177, 0),
-    --    endPos = Vector(8636, 14495, 281),
-     --   endAng = Angle(9, -178, 0)
-   -- }
-
-    --local sect4 = {
-    --    startPos = Vector(14154, 9397, 298),
-    --    startAng = Angle(6, 116, 0.),
-    --    endPos = Vector(13845, 13714, 396),
-    ----    endAng = Angle(15, -4, 0)
-    --}
-
-
-  --  local sect6 = {
-  --      startPos = Vector(-10375, -9547, 265),
- --       startAng = Angle(14, -96, 0),
- ---       endPos = Vector(-14659, -11298, 247),
- --       endAng = Angle(4, 79, 0)
---
-  --  }
-  -- if you add more sections then use a comma and put the sections you un commented
-    local sections = { sect1, sect2}
+    -- Get sections from config
+    local sections = CinematicIntro.Config.Sections
+    if #sections == 0 then
+        -- Fallback sections if none configured
+        sections = {
+            {
+                startPos = Vector(-7584, 1547, 516.952759),
+                startAng = Angle(3, 119, 0.000000),
+                endPos = Vector(-5101, 1699, 516.952759),
+                endAng = Angle(-1, 100, 0.000000)
+            },
+            {
+                startPos = Vector(-4107, 6071, 559.097412),
+                startAng = Angle(1, -159, 0.000000),
+                endPos = Vector(-6800, 7223, 557.347778),
+                endAng = Angle(3, -89, 0.000000)
+            }
+        }
+    end
 
     -- Lerp vars
     local section = 1
@@ -126,7 +105,6 @@ local function CinematicIntroStart()
                 section = 1
             end
         end
-
 
         local pos = LerpVector(lerpTime, sections[section].startPos, sections[section].endPos)
         local ang = LerpAngle(lerpTime, sections[section].startAng, sections[section].endAng)

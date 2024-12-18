@@ -1,3 +1,22 @@
+// Gotta make this a little better but it works for now:)
+
+local credits = {
+	"Cinematic Intro",
+	"Created by ilyywisdom<3",
+	"Version 1.0.0"
+}
+
+local function PrintCredits()
+	MsgC(Color(107,3,3), "\n=== Cinematic Intro Credits ===\n")
+	for _, line in ipairs(credits) do
+		MsgC(Color(107,3,3), line .. "\n") 
+	end
+	MsgC(Color(107,3,3), "===========================\n\n")
+end
+
+PrintCredits()
+
+
 local rootDirectory = "cinematicintro"
 
 local function AddFile( File, directory )
